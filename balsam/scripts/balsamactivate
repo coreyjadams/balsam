@@ -2,7 +2,7 @@
 
 [[ "$0" = *"balsamactivate"* ]] && echo "Error: Must source this script. Run 'source balsamactivate' instead of 'balsamactivate'" && exit
 
-py_version=$(python -c 'from __future__ import print_function; import sys; print(sys.version_info.major, sys.version_info.minor)')
+py_version=$(python3 -c 'from __future__ import print_function; import sys; print(sys.version_info.major, sys.version_info.minor)')
 major=$(echo $py_version | cut -d' ' -f1)
 minor=$(echo $py_version | cut -d' ' -f2)
 if [[ $major -lt 3 || $minor -lt 6 ]]; then
