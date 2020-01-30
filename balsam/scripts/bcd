@@ -10,7 +10,7 @@ then
     return 1
 fi
 
-dir=$(python -c "from balsam.core.models import BalsamJob;print(BalsamJob.objects.get(job_id__contains=\"$1\").working_directory)" 2>&1)
+dir=$(python3 -c "from balsam.core.models import BalsamJob;print(BalsamJob.objects.get(job_id__contains=\"$1\").working_directory)" 2>&1)
 
 if [ $? -ne 0 ]
 then
