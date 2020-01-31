@@ -5,8 +5,11 @@ import shutil
 import tempfile
 from balsam.django_config.serverinfo import ServerInfo
 
-home_dir = os.path.expanduser('~')
-BALSAM_HOME = os.path.join(home_dir, '.balsam')
+if 'BALSAM_HOME' in os.environ:
+    BALSAM_HOME = os.environ['BALSAM_HOME']
+else:
+    home_dir = os.path.expanduser('~')
+    BALSAM_HOME = os.path.join(home_dir, '.balsam')
 
 def bootstrap():
     if not os.path.exists(BALSAM_HOME):

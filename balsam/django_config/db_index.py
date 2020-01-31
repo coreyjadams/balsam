@@ -2,8 +2,11 @@ import json
 import os
 
 def refresh_db_index():
-    home_dir = os.path.expanduser('~')
-    BALSAM_HOME = os.path.join(home_dir, '.balsam')
+    if 'BALSAM_HOME' in os.environ:
+        BALSAM_HOME = os.environ['BALSAM_HOME']
+    else:
+        home_dir = os.path.expanduser('~')
+        BALSAM_HOME = os.path.join(home_dir, '.balsam')
 
     index_path = os.path.join(BALSAM_HOME, 'databases.json')
 
